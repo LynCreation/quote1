@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+“Beware of little expenses. A small leak will sink a great ship.” – Benjamin Franklin
+“A budget tells us what we can’t afford, but it doesn’t keep us from buying it.” – William Feather
+“Personal finance is only 20% head knowledge. It’s 80% behavior!” – Dave Ramsey
+“A big part of financial freedom is having your heart and mind free from worry about the what-ifs of life.” – Suze Orman
+Money, like emotions, is something you must control to keep your life on the right track.” -Natasha Munson
+“Money isn’t everything, but it’s right up there with oxygen.” – Zig Ziglar
+“Financial freedom is available to those who learn about it and work for it.” ― Robert Kiyosaki
+“If you want to be financially free, you need to become a different person than you are today and let go of whatever has held you back in the past.” — Robert Kiyosaki
+Before you can become a millionaire, you must learn to think like one. You must learn how to motivate yourself to counter fear with courage.” —Thomas J. Stanley
+“To get rich, you have to be making money while you're asleep.” ― David Bailey
+“Wealth is largely the result of habit.” — John Jacob Astor
+“Nothing wrong with making money.” — Adam Levine
+“Making money is easy. It is. The difficult thing in life is not making it; it's keeping it.” — John McAfee
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
